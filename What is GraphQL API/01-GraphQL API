@@ -1,0 +1,27 @@
+
+GraphQL tells us you can just Query what you need (n+1) below is the Example, It also works on HTTP, GraphQL only makes POST Call, It works on Single Endpoint "/graphql"
+
+
+query products {
+
+	id
+	title
+	thumbnail
+
+}
+
+
+Now we will only get (ID, TITLE & Thumbnail) in the Response from GraphQL (The Client can Decide what Data they want)
+
+
+
+
+
+# If we want to Get the Data we will use the Keyword Query (as shown above) with all the required info and its Schema Definition
+
+
+
+# If we want to Update any Data ya Bhejna h toh we will Use Mutation 
+
+
+
