@@ -1,60 +1,58 @@
 # Application-Programming-Interface-API-Notes
 
 
-## 🔗 API Key vs JWT vs OAuth – Mermaid Diagram
 
-> ✅ Clean version (GitHub-safe, no parsing errors)
+## 🔗 API Key vs JWT vs OAuth – System Diagram
 
-```mermaid
+> ✔️ GitHub-safe Mermaid (tested style: no emojis in nodes, clean labels)
+
+```mermaid id="clean-flow-1"
 flowchart TD
 
-    A[User] -->|Login or Consent| B[OAuth Provider - Google]
+    A[User] --> B[OAuth Provider - Google]
+    B --> C[Backend]
 
-    B -->|Authorization Code| C[Backend]
+    C --> D[JWT Token]
+    D --> E[Frontend]
 
-    C -->|Generate JWT| D[JWT Token]
-    D -->|Send to Frontend| E[Frontend]
+    E --> C
 
-    E -->|API Request with JWT| C
-
-    C -->|Verify JWT| C
-
-    C -->|Use API Key| F[External APIs - OpenAI or Stripe]
-
-    C -->|Use Access Token| G[OAuth Resource APIs - Google Data]
-
+    C --> F[External APIs - OpenAI Stripe]
+    C --> G[OAuth Resource APIs - Google Data]
 ```
 
 ---
 
-## 🧠 How to Read This Diagram
+## 🧠 How It Works
 
-### 🔐 OAuth (Login)
+### OAuth (Login)
 
-* User logs in via Google
-* Backend receives authorization code and exchanges it for tokens
-
----
-
-### 🔑 JWT (Session)
-
-* Backend creates JWT
-* Frontend uses JWT for authenticated requests
+* User logs in using Google
+* OAuth provider returns authorization code
+* Backend verifies and continues flow
 
 ---
 
-### 🔗 API Key (External Services)
+### JWT (Session)
 
-* Backend uses API keys to call external services:
+* Backend creates JWT after login
+* Frontend stores and sends JWT with requests
+* Backend verifies JWT on every request
+
+---
+
+### API Key (External Services)
+
+* Backend uses API keys to access external services like:
 
   * OpenAI
   * Stripe
 
 ---
 
-## 📦 Sequence Diagram (Also Fixed)
+## 📦 Sequence Diagram (Fixed Version)
 
-```mermaid
+```mermaid id="clean-seq-1"
 sequenceDiagram
     participant User
     participant Frontend
@@ -62,11 +60,11 @@ sequenceDiagram
     participant OAuthProvider
     participant ExternalAPI
 
-    User->>Frontend: Click Login with Google
-    Frontend->>OAuthProvider: Redirect to login
-    OAuthProvider->>Frontend: Return authorization code
+    User->>Frontend: Login request
+    Frontend->>OAuthProvider: Redirect for login
+    OAuthProvider->>Frontend: Authorization code
     Frontend->>Backend: Send code
-    Backend->>OAuthProvider: Exchange code for access token
+    Backend->>OAuthProvider: Exchange code for token
     Backend->>Backend: Create JWT
     Backend->>Frontend: Send JWT
 
@@ -75,17 +73,13 @@ sequenceDiagram
 
     Backend->>ExternalAPI: Request using API key
     ExternalAPI->>Backend: Response
-    Backend->>Frontend: Send data
+    Backend->>Frontend: Return data
 ```
 
 ---
 
 ## ⚡ One-Line Summary
 
-**OAuth = login → JWT = session → API key = external API access**
+**OAuth = login identity | JWT = user session | API Key = external service access**
 
 ---
-
-
-
-
