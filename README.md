@@ -1,8 +1,7 @@
 # Application-Programming-Interface-API-Notes
 
 
-
-## 🔗 API Key vs JWT vs OAuth – Mermaid Diagram 
+##  API Key vs JWT vs OAuth – Mermaid Diagram 
 
 
 
@@ -28,9 +27,9 @@ flowchart TD
 
 ---
 
-## 🧠 How to Read This Diagram
+##  How to Read This Diagram
 
-### 🔐 OAuth (Login)
+###  OAuth (Login)
 
 * User logs in via Google
 * Your backend receives authorization and tokens
