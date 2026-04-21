@@ -4,25 +4,25 @@
 
 ## 🔗 API Key vs JWT vs OAuth – Mermaid Diagram 
 
-> ✅ This will render automatically on GitHub (Mermaid supported)
+
 
 ```mermaid
 flowchart TD
 
-    A[👤 User] -->|Login / Consent| B[🔐 OAuth Provider (Google)]
+    A[ User] -->|Login / Consent| B[ OAuth Provider (Google)]
 
-    B -->|Authorization Code| C[🌐 Your Backend]
+    B -->|Authorization Code| C[ Your Backend]
 
-    C -->|Generate| D[🔐 JWT Token]
-    D -->|Send to| E[💻 Frontend]
+    C -->|Generate| D[ JWT Token]
+    D -->|Send to| E[ Frontend]
 
     E -->|API Requests with JWT| C
 
     C -->|Verify JWT| C
 
-    C -->|Use API Key| F[🔑 External APIs (OpenAI, Stripe)]
+    C -->|Use API Key| F[ External APIs (OpenAI, Stripe)]
 
-    C -->|Use Access Token| G[🎟️ OAuth Resource APIs (Google Data)]
+    C -->|Use Access Token| G[ OAuth Resource APIs (Google Data)]
 
 ```
 
