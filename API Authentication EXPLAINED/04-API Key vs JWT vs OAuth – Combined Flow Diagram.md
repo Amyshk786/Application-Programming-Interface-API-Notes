@@ -5,7 +5,7 @@
                     │        👤 USER           │
                     └────────────┬─────────────┘
                                  │
-                                 │ Login / अनुमति
+                                 │ Login 
                                  ▼
                     ┌──────────────────────────┐
                     │   🔐 OAuth Provider      │
@@ -118,12 +118,4 @@ Authorization: Bearer API_KEY
 
 ---
 
-## 📌 Tip for GitHub README
 
-You can paste this section directly into your `README.md` under:
-
-```id="readmehint"
-## Authentication & API Flow
-```
-
----
