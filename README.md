@@ -2,7 +2,7 @@
 
 
 
-## 🔗 API Key vs JWT vs OAuth – Mermaid Diagram (GitHub Ready)
+## 🔗 API Key vs JWT vs OAuth – Mermaid Diagram 
 
 > ✅ This will render automatically on GitHub (Mermaid supported)
 
